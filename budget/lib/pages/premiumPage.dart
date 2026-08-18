@@ -1,29 +1,29 @@
 import 'dart:async';
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/defaultPreferences.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/animatedExpanded.dart';
-import 'package:budget/widgets/breathingAnimation.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/moreIcons.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/statusBox.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/widgets/transactionEntry/transactionEntry.dart';
-import 'package:budget/widgets/viewAllTransactionsButton.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/defaultPreferences.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/animatedExpanded.dart';
+import 'package:hamyon/widgets/breathingAnimation.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/moreIcons.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/statusBox.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/transactionEntry/transactionEntry.dart';
+import 'package:hamyon/widgets/viewAllTransactionsButton.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sa3_liquid/sa3_liquid.dart';
-import 'package:budget/widgets/openContainerNavigation.dart';
+import 'package:hamyon/widgets/openContainerNavigation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 bool premiumPopupEnabled = kIsWeb == false;
@@ -84,7 +84,7 @@ class PremiumPage extends StatelessWidget {
                               ),
                               Column(
                                 children: [
-                                  CashewProBanner(large: true),
+                                  HamyonProBanner(large: true),
                                   SizedBox(height: 4),
                                   TextFont(
                                     text: "budget-like-a-pro".tr() +
@@ -427,8 +427,8 @@ class _FreePremiumMessageState extends State<FreePremiumMessage> {
   }
 }
 
-class CashewProBanner extends StatelessWidget {
-  const CashewProBanner({this.large = false, this.fontColor, super.key});
+class HamyonProBanner extends StatelessWidget {
+  const HamyonProBanner({this.large = false, this.fontColor, super.key});
   final bool large;
   final Color? fontColor;
 
@@ -531,7 +531,7 @@ class ManageSubscription extends StatelessWidget {
                     fontSize: 16,
                   ),
             SizedBox(height: 10),
-            CashewProBanner(fontColor: getColor(context, "black")),
+            HamyonProBanner(fontColor: getColor(context, "black")),
             TextFont(
               text: currentPlanName ?? "",
               fontSize: 23,
@@ -709,7 +709,7 @@ showHelpRestorePopup(BuildContext context) {
       if (openResult == false) copyToClipboard("dapperappdeveloper@gmail.com");
     },
     onExtra: () =>
-        openUrl("https://cashewapp.web.app/faq.html#restoring-purchases"),
+        openUrl(globalAppWebsite + "/faq.html#restoring-purchases"),
     onExtraLabel: "FAQ".tr(),
   );
 }
@@ -1297,7 +1297,7 @@ class _FadeOutAndLockFeatureState extends State<FadeOutAndLockFeature> {
                   fontSize: 15,
                 ),
                 SizedBox(height: 5),
-                CashewProBanner(fontColor: getColor(context, "black")),
+                HamyonProBanner(fontColor: getColor(context, "black")),
                 SizedBox(height: 15),
                 LowKeyButton(
                   onTap: openPremiumPopup,
@@ -1459,7 +1459,7 @@ class PremiumBanner extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    CashewProBanner(),
+                                    HamyonProBanner(),
                                     purchased
                                         ? Container(
                                             margin:

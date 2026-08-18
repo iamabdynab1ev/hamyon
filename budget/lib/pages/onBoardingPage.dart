@@ -1,30 +1,30 @@
-import 'package:budget/colors.dart';
-import 'package:budget/database/generatePreviewData.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/pages/addBudgetPage.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/accountAndBackup.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/currencyPicker.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
-import 'package:budget/widgets/linearGradientFadedEdges.dart';
-import 'package:budget/widgets/moreIcons.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/widgets/viewAllTransactionsButton.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/generatePreviewData.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/pages/addBudgetPage.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/accountAndBackup.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/currencyPicker.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/linearGradientFadedEdges.dart';
+import 'package:hamyon/widgets/moreIcons.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/viewAllTransactionsButton.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/database/initializeDefaultDatabase.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/database/initializeDefaultDatabase.dart';
 
-import 'package:budget/widgets/pageIndicator.dart';
+import 'package:hamyon/widgets/pageIndicator.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({

@@ -1,9 +1,9 @@
-import 'package:budget/struct/defaultPreferences.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/navigationFramework.dart';
+import 'package:hamyon/struct/defaultPreferences.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:budget/functions.dart';
+import 'package:hamyon/functions.dart';
 
 class FadeIn extends StatefulWidget {
   FadeIn({Key? key, required this.child, this.duration}) : super(key: key);

@@ -1,29 +1,29 @@
 import 'dart:math';
-import 'package:budget/functions.dart';
-import 'package:budget/main.dart';
-import 'package:budget/pages/accountsPage.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/pages/debugPage.dart';
-import 'package:budget/pages/detailedChangelogPage.dart';
-import 'package:budget/pages/onBoardingPage.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
-import 'package:budget/widgets/moreIcons.dart';
-import 'package:budget/widgets/navigationSidebar.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/ratingPopup.dart';
-import 'package:budget/widgets/showChangelog.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/main.dart';
+import 'package:hamyon/pages/accountsPage.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/pages/debugPage.dart';
+import 'package:hamyon/pages/detailedChangelogPage.dart';
+import 'package:hamyon/pages/onBoardingPage.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/moreIcons.dart';
+import 'package:hamyon/widgets/navigationSidebar.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/ratingPopup.dart';
+import 'package:hamyon/widgets/showChangelog.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class AboutPage extends StatefulWidget {
@@ -855,15 +855,7 @@ class AboutLinks extends StatelessWidget {
             _buildTappable(
               context: context,
               isExternalLink: true,
-              onTap: () => openUrl("https://github.com/jameskokoska/Cashew"),
-              icon: MoreIcons.github,
-              text: "app-is-open-source".tr(namedArgs: {"app": globalAppName}),
-            ),
-            const HorizontalBreak(padding: EdgeInsetsDirectional.zero),
-            _buildTappable(
-              context: context,
-              isExternalLink: true,
-              onTap: () => openUrl("https://cashewapp.web.app/faq.html"),
+              onTap: () => openUrl(globalAppWebsite + "/faq.html"),
               icon: appStateSettings["outlinedIcons"]
                   ? Icons.live_help_outlined
                   : Icons.live_help_rounded,
@@ -904,7 +896,7 @@ class AboutLinks extends StatelessWidget {
             _buildTappable(
               context: context,
               isExternalLink: true,
-              onTap: () => openUrl("http://cashewapp.web.app/policy.html"),
+              onTap: () => openUrl(globalAppWebsite + "/policy.html"),
               icon: appStateSettings["outlinedIcons"]
                   ? Icons.policy_outlined
                   : Icons.policy_rounded,
@@ -993,7 +985,7 @@ class AboutDeepLinking extends StatelessWidget {
       title: "deep-linking".tr(),
       showLink: false,
       link:
-          "https://github.com/jameskokoska/Cashew?tab=readme-ov-file#app-links",
+          "",
       list: [
         "deep-linking-description".tr(),
       ],

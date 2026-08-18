@@ -1,32 +1,32 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/addCategoryPage.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/categoryIcon.dart';
-import 'package:budget/widgets/dropdownSelect.dart';
-import 'package:budget/widgets/fab.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/noResults.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/openSnackbar.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/selectCategory.dart';
-import 'package:budget/widgets/selectChips.dart';
-import 'package:budget/widgets/textInput.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/addCategoryPage.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/categoryIcon.dart';
+import 'package:hamyon/widgets/dropdownSelect.dart';
+import 'package:hamyon/widgets/fab.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/noResults.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/openSnackbar.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/selectCategory.dart';
+import 'package:hamyon/widgets/selectChips.dart';
+import 'package:hamyon/widgets/textInput.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart' hide SliverReorderableList;
 import 'package:flutter/services.dart' hide TextInput;
-import 'package:budget/widgets/editRowEntry.dart';
-import 'package:budget/modified/reorderable_list.dart';
+import 'package:hamyon/widgets/editRowEntry.dart';
+import 'package:hamyon/modified/reorderable_list.dart';
 
 class EditCategoriesPage extends StatefulWidget {
   EditCategoriesPage({

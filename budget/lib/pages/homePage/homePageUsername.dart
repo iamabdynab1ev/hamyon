@@ -1,7 +1,7 @@
-import 'package:budget/functions.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

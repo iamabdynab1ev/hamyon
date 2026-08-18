@@ -1,5 +1,5 @@
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
 import 'package:flutter/material.dart';
 
 class ChangePagesArrows extends StatelessWidget {

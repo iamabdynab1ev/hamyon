@@ -1,23 +1,23 @@
 import 'dart:math';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/editBudgetPage.dart';
-import 'package:budget/pages/editHomePage.dart';
-import 'package:budget/pages/editObjectivesPage.dart';
-import 'package:budget/pages/subscriptionsPage.dart';
-import 'package:budget/pages/transactionsListPage.dart';
-import 'package:budget/pages/upcomingOverdueTransactionsPage.dart';
-import 'package:budget/struct/navBarIconsData.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/outlinedButtonStacked.dart';
-import 'package:budget/widgets/framework/navigation_bar/navigation_bar.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/editBudgetPage.dart';
+import 'package:hamyon/pages/editHomePage.dart';
+import 'package:hamyon/pages/editObjectivesPage.dart';
+import 'package:hamyon/pages/subscriptionsPage.dart';
+import 'package:hamyon/pages/transactionsListPage.dart';
+import 'package:hamyon/pages/upcomingOverdueTransactionsPage.dart';
+import 'package:hamyon/struct/navBarIconsData.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/outlinedButtonStacked.dart';
+import 'package:hamyon/widgets/framework/navigation_bar/navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart'
     hide NavigationDestination, NavigationBar;
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:flutter/services.dart';
 
 class BottomNavBar extends StatefulWidget {

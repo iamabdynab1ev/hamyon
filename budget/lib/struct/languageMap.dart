@@ -1,13 +1,18 @@
 import 'dart:convert';
 
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 
-String globalAppName = "Cashew";
+String globalAppName = "Hamyon";
+
+// Адрес сайта приложения. Пока домена нет, строка пустая: ссылки на справку
+// и политику конфиденциальности никуда не ведут, но и на чужой сайт не
+// отправляют. Появится домен — достаточно заполнить здесь.
+String globalAppWebsite = "";
 
 Map<String, dynamic> languageNamesJSON = {};
 loadLanguageNamesJSON() async {

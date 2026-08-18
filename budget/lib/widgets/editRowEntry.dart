@@ -1,17 +1,17 @@
-import 'package:budget/colors.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/struct/defaultPreferences.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/openContainerNavigation.dart';
-import 'package:budget/widgets/tappable.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/defaultPreferences.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/openContainerNavigation.dart';
+import 'package:hamyon/widgets/tappable.dart';
 import 'package:flutter/material.dart'
     hide
         SliverReorderableList,
         ReorderableDragStartListener,
         ReorderableDelayedDragStartListener;
-import 'package:budget/modified/reorderable_list.dart';
+import 'package:hamyon/modified/reorderable_list.dart';
 
 class EditRowEntry extends StatelessWidget {
   const EditRowEntry({

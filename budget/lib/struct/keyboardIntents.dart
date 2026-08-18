@@ -1,5 +1,5 @@
-import 'package:budget/main.dart';
-import 'package:budget/widgets/navigationFramework.dart';
+import 'package:hamyon/main.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

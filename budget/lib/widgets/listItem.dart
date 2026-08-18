@@ -1,4 +1,4 @@
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {

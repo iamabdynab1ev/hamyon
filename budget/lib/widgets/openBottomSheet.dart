@@ -1,12 +1,12 @@
-import 'package:budget/functions.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/navigationSidebar.dart';
-import 'package:budget/widgets/textInput.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/navigationSidebar.dart';
+import 'package:hamyon/widgets/textInput.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
-import 'package:budget/widgets/scrollbarWrap.dart';
+import 'package:hamyon/widgets/scrollbarWrap.dart';
 
 bool getIsFullScreen(context) {
   return getWidthNavigationSidebar(context) > 0;

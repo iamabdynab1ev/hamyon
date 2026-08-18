@@ -1,9 +1,9 @@
-import 'package:budget/functions.dart';
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/defaultCategories.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/defaultCategories.dart';
 
 //Initialize default values in database
 Future<bool> initializeDefaultDatabase() async {

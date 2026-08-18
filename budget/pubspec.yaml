@@ -1,5 +1,5 @@
-name: budget
-description: A budget and financial tracking application designed for you
+name: hamyon
+description: Учёт доходов и расходов для семьи и небольшого бизнеса
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

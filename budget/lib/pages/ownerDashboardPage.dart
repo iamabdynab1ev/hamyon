@@ -1,10 +1,10 @@
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

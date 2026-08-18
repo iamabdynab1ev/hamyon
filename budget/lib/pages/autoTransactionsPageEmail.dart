@@ -1,30 +1,30 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/pages/addEmailTemplate.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/pages/editCategoriesPage.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/accountAndBackup.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/categoryIcon.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openContainerNavigation.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/openSnackbar.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/widgets/statusBox.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/widgets/util/appLinks.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/pages/addEmailTemplate.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/pages/editCategoriesPage.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/accountAndBackup.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/categoryIcon.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openContainerNavigation.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/openSnackbar.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/widgets/statusBox.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/util/appLinks.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:budget/functions.dart';
+import 'package:hamyon/functions.dart';
 import 'package:googleapis/gmail/v1.dart' as gMail;
 import 'package:html/parser.dart';
 import 'package:notification_listener_service/notification_event.dart';
@@ -229,7 +229,7 @@ class _AutoTransactionsPageNotificationsState
           },
           title: "Notification Transactions",
           description:
-              "When a notification is dismissed and the app is open, attempt to add a transaction given its information. Create a template so Cashew understands the format of a notification.",
+              "When a notification is dismissed and the app is open, attempt to add a transaction given its information. Create a template so Hamyon understands the format of a notification.",
           initialValue: appStateSettings["notificationScanning"],
         ),
         StreamBuilder<List<ScannerTemplate>>(

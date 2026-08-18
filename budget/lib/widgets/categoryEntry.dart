@@ -1,24 +1,24 @@
 import 'dart:math';
 
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/addCategoryPage.dart';
-import 'package:budget/struct/currencyFunctions.dart';
-import 'package:budget/struct/defaultPreferences.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/animatedExpanded.dart';
-import 'package:budget/widgets/categoryIcon.dart';
-import 'package:budget/widgets/categoryLimits.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/addCategoryPage.dart';
+import 'package:hamyon/struct/currencyFunctions.dart';
+import 'package:hamyon/struct/defaultPreferences.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/animatedExpanded.dart';
+import 'package:hamyon/widgets/categoryIcon.dart';
+import 'package:hamyon/widgets/categoryLimits.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/widgets/animatedCircularProgress.dart';
+import 'package:hamyon/widgets/animatedCircularProgress.dart';
 import 'package:provider/provider.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 
 class CategoryEntry extends StatelessWidget {
   CategoryEntry({

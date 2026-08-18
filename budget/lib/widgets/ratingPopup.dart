@@ -1,28 +1,28 @@
 import 'dart:async';
 
-import 'package:budget/functions.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/struct/firebaseAuthGlobal.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/animatedExpanded.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/openSnackbar.dart';
-import 'package:budget/widgets/showChangelog.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textInput.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/struct/firebaseAuthGlobal.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/animatedExpanded.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/openSnackbar.dart';
+import 'package:hamyon/widgets/showChangelog.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textInput.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:in_app_review/in_app_review.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
 
 final InAppReview inAppReview = InAppReview.instance;
 
@@ -124,7 +124,7 @@ class _RatingPopupState extends State<RatingPopup> {
                         ? Icons.open_in_new_outlined
                         : Icons.open_in_new_rounded,
                     onTap: () async {
-                      openUrl("https://cashewapp.web.app/faq.html");
+                      openUrl(globalAppWebsite + "/faq.html");
                     },
                   ),
               ],

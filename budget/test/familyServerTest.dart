@@ -3,11 +3,11 @@
 //   SERVER_URL=http://127.0.0.1:8091 flutter test test/familyServerTest.dart
 // Без переменной SERVER_URL тест пропускается, чтобы не падать там, где сервера нет.
 
-import 'package:budget/struct/familyServer.dart';
+import 'package:hamyon/struct/familyServer.dart';
 import 'dart:io';
 
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

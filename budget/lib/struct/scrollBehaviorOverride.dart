@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'package:flutter/material.dart';
 
 class ScrollBehaviorOverride extends MaterialScrollBehavior {

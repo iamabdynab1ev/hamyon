@@ -1,4 +1,4 @@
-import 'package:budget/widgets/tappable.dart';
+import 'package:hamyon/widgets/tappable.dart';
 import 'package:flutter/material.dart';
 
 class IconButtonScaled extends StatelessWidget {

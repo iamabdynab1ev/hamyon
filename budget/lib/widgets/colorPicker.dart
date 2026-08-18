@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:budget/functions.dart';
-import 'package:budget/widgets/tappable.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/widgets/tappable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 

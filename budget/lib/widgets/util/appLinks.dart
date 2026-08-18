@@ -1,27 +1,28 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/addEmailTemplate.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/pages/autoTransactionsPageEmail.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/struct/throttler.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/importCSV.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/openSnackbar.dart';
-import 'package:budget/widgets/transactionEntry/transactionEntry.dart';
-import 'package:budget/widgets/transactionEntry/transactionLabel.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/addEmailTemplate.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/pages/autoTransactionsPageEmail.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/struct/throttler.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/importCSV.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/openSnackbar.dart';
+import 'package:hamyon/widgets/transactionEntry/transactionEntry.dart';
+import 'package:hamyon/widgets/transactionEntry/transactionLabel.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:app_links/app_links.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:budget/struct/commonDateFormats.dart';
-import 'package:budget/widgets/tableEntry.dart';
+import 'package:hamyon/struct/commonDateFormats.dart';
+import 'package:hamyon/widgets/tableEntry.dart';
 import 'package:provider/provider.dart';
 
 Throttler appLinksThrottler = Throttler(duration: Duration(milliseconds: 350));
@@ -350,7 +351,7 @@ Future executeAppLink(BuildContext? context, Uri uri,
       }
       break;
 
-    // Ensures we can see other pages of the Cashew website
+    // Ensures we can see other pages of the app website
     // Such as the FAQ
     // default:
     //   if (context != null)
@@ -385,7 +386,7 @@ Future executeAppLink(BuildContext? context, Uri uri,
 //             loadingIndeterminateKey.currentState?.setVisibility(false);
 //           },
 //           onNavigationRequest: (NavigationRequest request) {
-//             if (request.url.startsWith('https://cashewapp.web.app/')) {
+//             if (request.url.startsWith(globalAppWebsite + '/')) {
 //               return NavigationDecision.navigate;
 //             } else {
 //               openUrl(request.url);

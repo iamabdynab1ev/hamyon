@@ -1,10 +1,10 @@
-import 'package:budget/functions.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/breathingAnimation.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/breathingAnimation.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:flutter/services.dart';
 
 class DropdownSelect extends StatefulWidget {

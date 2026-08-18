@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'package:http/http.dart' as http;
 
 // Клиент своего сервера семьи. Заменяет Google Drive как место, где устройства

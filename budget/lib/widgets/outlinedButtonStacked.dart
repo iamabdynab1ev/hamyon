@@ -1,9 +1,9 @@
-import 'package:budget/colors.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
 import 'package:flutter/material.dart';
 
 class OutlinedButtonStacked extends StatelessWidget {

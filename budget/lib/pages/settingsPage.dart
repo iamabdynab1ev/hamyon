@@ -1,67 +1,67 @@
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart' hide AppSettings;
-import 'package:budget/pages/aboutPage.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/pages/billSplitter.dart';
-import 'package:budget/pages/budgetsListPage.dart';
-import 'package:budget/pages/creditDebtTransactionsPage.dart';
-import 'package:budget/pages/editHomePage.dart';
-import 'package:budget/pages/editObjectivesPage.dart';
-import 'package:budget/pages/homePage/homePageNetWorth.dart';
-import 'package:budget/pages/objectivesListPage.dart';
-import 'package:budget/pages/premiumPage.dart';
-import 'package:budget/pages/transactionsListPage.dart';
-import 'package:budget/pages/upcomingOverdueTransactionsPage.dart';
-import 'package:budget/struct/currencyFunctions.dart';
-import 'package:budget/struct/defaultPreferences.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/navBarIconsData.dart';
-import 'package:budget/widgets/animatedExpanded.dart';
-import 'package:budget/widgets/dropdownSelect.dart';
-import 'package:budget/widgets/exportDB.dart';
-import 'package:budget/widgets/importCSV.dart';
-import 'package:budget/widgets/exportCSV.dart';
-import 'package:budget/pages/autoTransactionsPageEmail.dart';
-import 'package:budget/pages/activityPage.dart';
-import 'package:budget/pages/editAssociatedTitlesPage.dart';
-import 'package:budget/pages/editBudgetPage.dart';
-import 'package:budget/pages/editCategoriesPage.dart';
-import 'package:budget/pages/editWalletsPage.dart';
-import 'package:budget/pages/notificationsPage.dart';
-import 'package:budget/pages/subscriptionsPage.dart';
-import 'package:budget/pages/familyServerPage.dart';
-import 'package:budget/pages/ownerDashboardPage.dart';
-import 'package:budget/struct/familyServer.dart';
-import 'package:budget/widgets/accountAndBackup.dart';
-import 'package:budget/widgets/importDB.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/notificationsSettings.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/framework/pageFramework.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/radioItems.dart';
-import 'package:budget/widgets/ratingPopup.dart';
-import 'package:budget/widgets/restartApp.dart';
-import 'package:budget/widgets/selectAmount.dart';
-import 'package:budget/widgets/selectColor.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/pages/walletDetailsPage.dart';
-import 'package:budget/struct/initializeBiometrics.dart';
-import 'package:budget/widgets/sliderSelector.dart';
-import 'package:budget/widgets/tappable.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/widgets/util/checkWidgetLaunch.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart' hide AppSettings;
+import 'package:hamyon/pages/aboutPage.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/pages/billSplitter.dart';
+import 'package:hamyon/pages/budgetsListPage.dart';
+import 'package:hamyon/pages/creditDebtTransactionsPage.dart';
+import 'package:hamyon/pages/editHomePage.dart';
+import 'package:hamyon/pages/editObjectivesPage.dart';
+import 'package:hamyon/pages/homePage/homePageNetWorth.dart';
+import 'package:hamyon/pages/objectivesListPage.dart';
+import 'package:hamyon/pages/premiumPage.dart';
+import 'package:hamyon/pages/transactionsListPage.dart';
+import 'package:hamyon/pages/upcomingOverdueTransactionsPage.dart';
+import 'package:hamyon/struct/currencyFunctions.dart';
+import 'package:hamyon/struct/defaultPreferences.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/navBarIconsData.dart';
+import 'package:hamyon/widgets/animatedExpanded.dart';
+import 'package:hamyon/widgets/dropdownSelect.dart';
+import 'package:hamyon/widgets/exportDB.dart';
+import 'package:hamyon/widgets/importCSV.dart';
+import 'package:hamyon/widgets/exportCSV.dart';
+import 'package:hamyon/pages/autoTransactionsPageEmail.dart';
+import 'package:hamyon/pages/activityPage.dart';
+import 'package:hamyon/pages/editAssociatedTitlesPage.dart';
+import 'package:hamyon/pages/editBudgetPage.dart';
+import 'package:hamyon/pages/editCategoriesPage.dart';
+import 'package:hamyon/pages/editWalletsPage.dart';
+import 'package:hamyon/pages/notificationsPage.dart';
+import 'package:hamyon/pages/subscriptionsPage.dart';
+import 'package:hamyon/pages/familyServerPage.dart';
+import 'package:hamyon/pages/ownerDashboardPage.dart';
+import 'package:hamyon/struct/familyServer.dart';
+import 'package:hamyon/widgets/accountAndBackup.dart';
+import 'package:hamyon/widgets/importDB.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/notificationsSettings.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/framework/pageFramework.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/radioItems.dart';
+import 'package:hamyon/widgets/ratingPopup.dart';
+import 'package:hamyon/widgets/restartApp.dart';
+import 'package:hamyon/widgets/selectAmount.dart';
+import 'package:hamyon/widgets/selectColor.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/pages/walletDetailsPage.dart';
+import 'package:hamyon/struct/initializeBiometrics.dart';
+import 'package:hamyon/widgets/sliderSelector.dart';
+import 'package:hamyon/widgets/tappable.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/widgets/util/checkWidgetLaunch.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/main.dart';
+import 'package:hamyon/main.dart';
 import 'package:flutter/services.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
 import 'package:app_settings/app_settings.dart';
-import 'package:budget/widgets/outlinedButtonStacked.dart';
+import 'package:hamyon/widgets/outlinedButtonStacked.dart';
 
 //To get SHA1 Key run
 // ./gradlew signingReport
@@ -110,7 +110,7 @@ class MoreActionsPageState extends State<MoreActionsPage> {
                       ? Icons.live_help_outlined
                       : Icons.live_help_rounded,
                   action: () {
-                    openUrl("https://cashewapp.web.app/faq.html");
+                    openUrl(globalAppWebsite + "/faq.html");
                   },
                 ),
             ],
@@ -185,7 +185,6 @@ class MorePages extends StatelessWidget {
               //     padding: EdgeInsetsDirectional.symmetric(vertical: 5, horizontal: 4),
               //     child: SettingsContainer(
               //       onTap: () {
-              //         openUrl("https://github.com/jameskokoska/Cashew");
               //       },
               //       title: "open-source".tr(),
               //       icon: MoreIcons.github,

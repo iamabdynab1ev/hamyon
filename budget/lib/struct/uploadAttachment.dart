@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/accountAndBackup.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/openSnackbar.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/accountAndBackup.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/openSnackbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -117,7 +117,7 @@ Future<String?> uploadFileToDrive({
   final authenticateClient = GoogleAuthClient(authHeaders);
   final driveApi = drive.DriveApi(authenticateClient);
 
-  String folderName = "Cashew";
+  String folderName = "Hamyon";
   drive.FileList list = await driveApi.files.list(
       q: "mimeType='application/vnd.google-apps.folder' and name='$folderName'");
   String? folderId;

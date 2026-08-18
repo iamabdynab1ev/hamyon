@@ -1,12 +1,12 @@
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/homePage/homePageLineGraph.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/notificationsSettings.dart';
-import 'package:budget/widgets/periodCyclePicker.dart';
-import 'package:budget/widgets/selectAmount.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/homePage/homePageLineGraph.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/notificationsSettings.dart';
+import 'package:hamyon/widgets/periodCyclePicker.dart';
+import 'package:hamyon/widgets/selectAmount.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ Future<Map<String, dynamic>> getDefaultPreferences() async {
     "use24HourFormat": "system", //system, 12-hour, 24-hour
     "numberCountUpAnimation": true,
     "appAnimations": AppAnimations.all.index,
-    "showFAQAndHelpLink": true,
+    "showFAQAndHelpLink": false,
     "showExtraInfoText": true,
     "selectedWalletPk": "0",
     "selectedSubscriptionType": 0,

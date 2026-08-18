@@ -1,5 +1,5 @@
-import 'package:budget/struct/familyServer.dart';
-import 'package:budget/widgets/accountAndBackup.dart';
+import 'package:hamyon/struct/familyServer.dart';
+import 'package:hamyon/widgets/accountAndBackup.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
 
 // Файлы синхронизации могут лежать в двух местах: в Google Drive пользователя

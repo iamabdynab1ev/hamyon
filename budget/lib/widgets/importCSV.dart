@@ -1,25 +1,26 @@
 import 'dart:convert';
 
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/functions.dart';
-import 'package:budget/pages/addTransactionPage.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/animatedExpanded.dart';
-import 'package:budget/widgets/button.dart';
-import 'package:budget/widgets/dropdownSelect.dart';
-import 'package:budget/widgets/exportCSV.dart';
-import 'package:budget/widgets/outlinedButtonStacked.dart';
-import 'package:budget/widgets/tableEntry.dart';
-import 'package:budget/widgets/openBottomSheet.dart';
-import 'package:budget/widgets/openPopup.dart';
-import 'package:budget/widgets/progressBar.dart';
-import 'package:budget/widgets/settingsContainers.dart';
-import 'package:budget/widgets/textInput.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/struct/commonDateFormats.dart';
-import 'package:budget/widgets/viewAllTransactionsButton.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/addTransactionPage.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/animatedExpanded.dart';
+import 'package:hamyon/widgets/button.dart';
+import 'package:hamyon/widgets/dropdownSelect.dart';
+import 'package:hamyon/widgets/exportCSV.dart';
+import 'package:hamyon/widgets/outlinedButtonStacked.dart';
+import 'package:hamyon/widgets/tableEntry.dart';
+import 'package:hamyon/widgets/openBottomSheet.dart';
+import 'package:hamyon/widgets/openPopup.dart';
+import 'package:hamyon/widgets/progressBar.dart';
+import 'package:hamyon/widgets/settingsContainers.dart';
+import 'package:hamyon/widgets/textInput.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/struct/commonDateFormats.dart';
+import 'package:hamyon/widgets/viewAllTransactionsButton.dart';
 import 'package:drift/drift.dart' hide Column, Table;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
@@ -28,7 +29,7 @@ import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:flutter_charset_detector/flutter_charset_detector.dart';
-import 'package:budget/widgets/framework/popupFramework.dart';
+import 'package:hamyon/widgets/framework/popupFramework.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -242,7 +243,7 @@ class _ImportCSVState extends State<ImportCSV> {
                       ? Icons.live_help_outlined
                       : Icons.live_help_rounded,
                   onPressed: () => openUrl(
-                      "https://cashewapp.web.app/faq.html#import-csv-data"),
+                      globalAppWebsite + "/faq.html#import-csv-data"),
                 )
               : null,
           title: "assign-columns".tr(),

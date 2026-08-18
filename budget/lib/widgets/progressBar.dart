@@ -1,4 +1,4 @@
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:flutter/material.dart';
 
 class ProgressBar extends StatelessWidget {

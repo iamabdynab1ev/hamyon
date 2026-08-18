@@ -1,33 +1,33 @@
-import 'package:budget/functions.dart';
-import 'package:budget/pages/accountsPage.dart';
-import 'package:budget/pages/autoTransactionsPageEmail.dart';
-import 'package:budget/struct/currencyFunctions.dart';
-import 'package:budget/struct/iconObjects.dart';
-import 'package:budget/struct/keyboardIntents.dart';
-import 'package:budget/struct/logging.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/struct/languageMap.dart';
-import 'package:budget/struct/tajikLocaleData.dart';
-import 'package:budget/struct/initializeBiometrics.dart';
-import 'package:budget/widgets/util/appLinks.dart';
-import 'package:budget/widgets/util/onAppResume.dart';
-import 'package:budget/widgets/util/watchForDayChange.dart';
-import 'package:budget/widgets/watchAllWallets.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/struct/notificationsGlobal.dart';
-import 'package:budget/widgets/navigationSidebar.dart';
-import 'package:budget/widgets/globalLoadingProgress.dart';
-import 'package:budget/struct/scrollBehaviorOverride.dart';
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/struct/initializeNotifications.dart';
-import 'package:budget/widgets/navigationFramework.dart';
-import 'package:budget/widgets/restartApp.dart';
-import 'package:budget/struct/customDelayedCurve.dart';
+import 'package:hamyon/functions.dart';
+import 'package:hamyon/pages/accountsPage.dart';
+import 'package:hamyon/pages/autoTransactionsPageEmail.dart';
+import 'package:hamyon/struct/currencyFunctions.dart';
+import 'package:hamyon/struct/iconObjects.dart';
+import 'package:hamyon/struct/keyboardIntents.dart';
+import 'package:hamyon/struct/logging.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/struct/languageMap.dart';
+import 'package:hamyon/struct/tajikLocaleData.dart';
+import 'package:hamyon/struct/initializeBiometrics.dart';
+import 'package:hamyon/widgets/util/appLinks.dart';
+import 'package:hamyon/widgets/util/onAppResume.dart';
+import 'package:hamyon/widgets/util/watchForDayChange.dart';
+import 'package:hamyon/widgets/watchAllWallets.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/struct/notificationsGlobal.dart';
+import 'package:hamyon/widgets/navigationSidebar.dart';
+import 'package:hamyon/widgets/globalLoadingProgress.dart';
+import 'package:hamyon/struct/scrollBehaviorOverride.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/struct/initializeNotifications.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/restartApp.dart';
+import 'package:hamyon/struct/customDelayedCurve.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:budget/colors.dart';
+import 'package:hamyon/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:device_preview/device_preview.dart';
@@ -114,8 +114,8 @@ class App extends StatelessWidget {
       actions: keyboardIntents,
       themeAnimationDuration: Duration(milliseconds: 400),
       themeAnimationCurve: CustomDelayedCurve(),
-      key: ValueKey('CashewAppMain'),
-      title: 'Cashew',
+      key: ValueKey('HamyonAppMain'),
+      title: 'Hamyon',
       theme: getLightTheme(),
       darkTheme: getDarkTheme(),
       scrollBehavior: ScrollBehaviorOverride(),

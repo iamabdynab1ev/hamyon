@@ -1,9 +1,9 @@
 // web.dart
 import 'dart:typed_data';
-import 'package:budget/database/binary_string_conversion.dart';
-import 'package:budget/struct/databaseGlobal.dart';
+import 'package:hamyon/database/binary_string_conversion.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
 import 'package:drift/web.dart';
-import 'package:budget/database/tables.dart';
+import 'package:hamyon/database/tables.dart';
 import 'package:universal_html/html.dart' as html;
 
 Future<FinanceDatabase> constructDb(String dbName,

@@ -1,6 +1,6 @@
-import 'package:budget/colors.dart';
-import 'package:budget/struct/settings.dart';
-import 'package:budget/widgets/util/contextMenu.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/struct/settings.dart';
+import 'package:hamyon/widgets/util/contextMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 

@@ -1,5 +1,5 @@
-import 'package:budget/widgets/globalSnackbar.dart';
-import 'package:budget/widgets/navigationFramework.dart';
+import 'package:hamyon/widgets/globalSnackbar.dart';
+import 'package:hamyon/widgets/navigationFramework.dart';
 
 openSnackbar(SnackbarMessage message, {bool postIfQueue = true}) {
   snackbarKey.currentState!.post(message, postIfQueue: postIfQueue);

@@ -1,12 +1,12 @@
-import 'package:budget/colors.dart';
-import 'package:budget/database/tables.dart';
-import 'package:budget/struct/databaseGlobal.dart';
-import 'package:budget/widgets/categoryIcon.dart';
-import 'package:budget/widgets/fadeIn.dart';
-import 'package:budget/widgets/navigationSidebar.dart';
-import 'package:budget/widgets/pinWheelReveal.dart';
-import 'package:budget/widgets/textWidgets.dart';
-import 'package:budget/functions.dart';
+import 'package:hamyon/colors.dart';
+import 'package:hamyon/database/tables.dart';
+import 'package:hamyon/struct/databaseGlobal.dart';
+import 'package:hamyon/widgets/categoryIcon.dart';
+import 'package:hamyon/widgets/fadeIn.dart';
+import 'package:hamyon/widgets/navigationSidebar.dart';
+import 'package:hamyon/widgets/pinWheelReveal.dart';
+import 'package:hamyon/widgets/textWidgets.dart';
+import 'package:hamyon/functions.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

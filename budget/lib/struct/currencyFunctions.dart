@@ -1,6 +1,6 @@
-import 'package:budget/struct/settings.dart';
+import 'package:hamyon/struct/settings.dart';
 import 'dart:convert';
-import 'package:budget/database/tables.dart';
+import 'package:hamyon/database/tables.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 

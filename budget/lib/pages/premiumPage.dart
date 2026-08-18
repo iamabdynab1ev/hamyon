@@ -714,10 +714,12 @@ showHelpRestorePopup(BuildContext context) {
   );
 }
 
+// Платных функций в приложении нет: подписка и покупки достались от проекта,
+// на котором оно основано, и продавать их мы не собираемся. Возвращая true,
+// снимаем все ограничения разом — каждая проверка начинается с этой функции,
+// поэтому трогать остальные экраны не требуется.
 bool hidePremiumPopup() {
-  return premiumPopupEnabled == false ||
-      appStateSettings["purchaseID"] != null ||
-      appStateSettings["previewDemo"] == true;
+  return true;
 }
 
 Future<bool> premiumPopupPushRoute(BuildContext context) async {
@@ -1402,7 +1404,9 @@ class PremiumBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) return SizedBox.shrink();
+    // Баннер предлагал купить подписку — платных функций больше нет.
+    return SizedBox.shrink();
+    // ignore: dead_code
     double borderRadius = 15;
     bool purchased = appStateSettings["purchaseID"] != null;
 

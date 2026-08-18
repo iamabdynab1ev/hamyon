@@ -210,6 +210,20 @@ class FamilyServer {
     return response.bodyBytes;
   }
 
+  // Возвращает ссылку на загруженный файл. Её сохраняют в заметке операции,
+  // поэтому она должна открываться браузером без токена — сервер отдаёт файл
+  // по случайному ключу внутри самой ссылки.
+  static Future<String> uploadAttachment(String name, List<int> bytes) async {
+    final dynamic body = await _request(
+        "POST", "attachments?name=${Uri.encodeQueryComponent(name)}",
+        rawBody: bytes);
+    final String url = body?["url"]?.toString() ?? "";
+    if (url.isEmpty) {
+      throw FamilyServerException("Сервер не вернул ссылку на файл");
+    }
+    return url;
+  }
+
   static Future<void> deleteFile(String name) async {
     await _request("DELETE", "sync/files/${Uri.encodeComponent(name)}");
   }

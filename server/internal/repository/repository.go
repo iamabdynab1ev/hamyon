@@ -249,3 +249,42 @@ func (r *Repository) DeleteSyncFile(ctx context.Context, familyID, name string) 
 	}
 	return storageKey, nil
 }
+
+func (r *Repository) CreateAttachment(ctx context.Context, familyID, userID, publicKey, name, mimeType, storageKey string, size int64) (domain.Attachment, error) {
+	attachment := domain.Attachment{
+		PublicKey: publicKey,
+		Name:      name,
+		MimeType:  mimeType,
+		SizeBytes: size,
+	}
+	err := r.pool.QueryRow(ctx,
+		`INSERT INTO attachments (family_id, user_id, public_key, name, mime_type, size_bytes, storage_key)
+		 VALUES ($1, $2, $3, $4, $5, $6, $7)
+		 RETURNING id, created_at`,
+		familyID, userID, publicKey, name, mimeType, size, storageKey,
+	).Scan(&attachment.ID, &attachment.CreatedAt)
+	if err != nil {
+		return domain.Attachment{}, fmt.Errorf("repository create attachment: %w", err)
+	}
+	return attachment, nil
+}
+
+// AttachmentByPublicKey ищет вложение только по ключу из ссылки: у открывающего
+// её нет ни токена, ни принадлежности к семье, поэтому ключ и есть пропуск.
+func (r *Repository) AttachmentByPublicKey(ctx context.Context, publicKey string) (domain.Attachment, string, error) {
+	var attachment domain.Attachment
+	var storageKey string
+	err := r.pool.QueryRow(ctx,
+		`SELECT id, public_key, name, mime_type, size_bytes, created_at, storage_key
+		   FROM attachments WHERE public_key = $1`,
+		publicKey,
+	).Scan(&attachment.ID, &attachment.PublicKey, &attachment.Name,
+		&attachment.MimeType, &attachment.SizeBytes, &attachment.CreatedAt, &storageKey)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return domain.Attachment{}, "", domain.ErrNotFound
+	}
+	if err != nil {
+		return domain.Attachment{}, "", fmt.Errorf("repository attachment by key: %w", err)
+	}
+	return attachment, storageKey, nil
+}

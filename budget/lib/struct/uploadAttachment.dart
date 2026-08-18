@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:hamyon/struct/familyServer.dart';
 import 'package:hamyon/struct/settings.dart';
 import 'package:hamyon/widgets/accountAndBackup.dart';
 import 'package:hamyon/widgets/globalSnackbar.dart';
@@ -109,6 +110,11 @@ Future<String?> uploadFileToDrive({
   required Uint8List fileBytes,
   required String fileName,
 }) async {
+  // Со своим сервером файлы никуда наружу не уходят и вход в Google не нужен.
+  if (FamilyServer.isSignedIn) {
+    return await FamilyServer.uploadAttachment(fileName, fileBytes);
+  }
+
   if (googleUser == null) {
     await signInGoogle(drivePermissionsAttachments: true);
   }

@@ -37,6 +37,10 @@ func (h *Handler) Routes() http.Handler {
 		writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
 	})
 
+	// Короткий путь: эта ссылка сохраняется в заметке операции и открывается
+	// без авторизации, поэтому она живёт вне /api/v1.
+	router.Get("/a/{key}", h.downloadAttachment)
+
 	router.Route("/api/v1", func(api chi.Router) {
 		api.Post("/auth/register-family", h.registerFamily)
 		api.Post("/auth/join-family", h.joinFamily)
@@ -48,6 +52,8 @@ func (h *Handler) Routes() http.Handler {
 			private.Get("/me", h.me)
 			private.Get("/family/members", h.members)
 			private.Post("/family/members/{userID}/active", h.setMemberActive)
+
+			private.Post("/attachments", h.uploadAttachment)
 
 			private.Get("/sync/files", h.listSyncFiles)
 			private.Put("/sync/files/{name}", h.uploadSyncFile)

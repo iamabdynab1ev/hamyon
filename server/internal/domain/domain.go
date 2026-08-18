@@ -47,3 +47,14 @@ var (
 	ErrBadCredentials = errors.New("invalid login or password")
 	ErrForbidden      = errors.New("forbidden")
 )
+
+// Attachment — файл, прикреплённый к операции. PublicKey попадает в ссылку,
+// которая сохраняется в заметке операции и открывается без авторизации.
+type Attachment struct {
+	ID        string    `json:"id"`
+	PublicKey string    `json:"publicKey"`
+	Name      string    `json:"name"`
+	MimeType  string    `json:"mimeType"`
+	SizeBytes int64     `json:"sizeBytes"`
+	CreatedAt time.Time `json:"createdAt"`
+}

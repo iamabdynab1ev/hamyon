@@ -1199,5 +1199,10 @@
   "quarter": "Chorak",
   "by-member": "Aʼzolar boʻyicha",
   "unknown-member": "Sinxronlashdan oldin qoʻshilgan",
-  "spending-by-category": "Kategoriya boʻyicha xarajatlar"
+  "spending-by-category": "Kategoriya boʻyicha xarajatlar",
+  "default-category-celebrations": "Toʻy va marosimlar",
+  "default-category-charity": "Xayriya va sadaqa",
+  "default-category-communication": "Aloqa va internet",
+  "default-category-health": "Salomatlik",
+  "default-category-education": "Taʼlim"
 }

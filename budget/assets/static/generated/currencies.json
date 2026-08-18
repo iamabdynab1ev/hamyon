@@ -2415,9 +2415,11 @@
     "NotKnown": true
   },
   "tjs": {
-    "Currency": "Tajikistani Somoni",
-    "Code": "tjs",
-    "NotKnown": true
+    "Currency": "Somoni",
+    "Code": "TJS",
+    "Symbol": "смн",
+    "CountryName": "Tajikistan",
+    "CountryCode": "TJ"
   },
   "tmm": {
     "Currency": "Turkmenistani Manat",
@@ -2605,6 +2607,7 @@
   "uzs": {
     "Currency": "Som",
     "Code": "UZS",
+    "Symbol": "soʻm",
     "CountryName": "Uzbekistan",
     "CountryCode": "UZ"
   },

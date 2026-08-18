@@ -1199,5 +1199,10 @@
   "quarter": "Квартал",
   "by-member": "По участникам",
   "unknown-member": "Добавлено до синхронизации",
-  "spending-by-category": "Расходы по категориям"
+  "spending-by-category": "Расходы по категориям",
+  "default-category-celebrations": "Торжества",
+  "default-category-charity": "Помощь и садака",
+  "default-category-communication": "Связь и интернет",
+  "default-category-health": "Здоровье",
+  "default-category-education": "Образование"
 }

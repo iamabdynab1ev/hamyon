@@ -1199,5 +1199,10 @@
   "quarter": "Quarter",
   "by-member": "By Member",
   "unknown-member": "Added before syncing",
-  "spending-by-category": "Spending by Category"
+  "spending-by-category": "Spending by Category",
+  "default-category-celebrations": "Celebrations",
+  "default-category-charity": "Charity",
+  "default-category-communication": "Phone & Internet",
+  "default-category-health": "Health",
+  "default-category-education": "Education"
 }

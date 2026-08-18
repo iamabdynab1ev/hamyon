@@ -1199,5 +1199,10 @@
   "quarter": "Чоряк",
   "by-member": "Аз рӯи аъзоён",
   "unknown-member": "Пеш аз ҳамоҳангсозӣ илова шуда",
-  "spending-by-category": "Хароҷот аз рӯи категория"
+  "spending-by-category": "Хароҷот аз рӯи категория",
+  "default-category-celebrations": "Тӯй ва маросимҳо",
+  "default-category-charity": "Хайрия ва садақа",
+  "default-category-communication": "Алоқа ва интернет",
+  "default-category-health": "Саломатӣ",
+  "default-category-education": "Таҳсилот"
 }

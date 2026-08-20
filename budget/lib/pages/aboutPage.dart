@@ -16,7 +16,6 @@ import 'package:hamyon/widgets/navigationSidebar.dart';
 import 'package:hamyon/widgets/openBottomSheet.dart';
 import 'package:hamyon/widgets/openPopup.dart';
 import 'package:hamyon/widgets/framework/pageFramework.dart';
-import 'package:hamyon/widgets/ratingPopup.dart';
 import 'package:hamyon/widgets/showChangelog.dart';
 import 'package:hamyon/widgets/tappable.dart';
 import 'package:hamyon/widgets/textWidgets.dart';

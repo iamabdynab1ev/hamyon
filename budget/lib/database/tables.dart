@@ -4,7 +4,6 @@ import 'package:hamyon/pages/homePage/homePageLineGraph.dart';
 import 'package:hamyon/pages/objectivesListPage.dart';
 import 'package:hamyon/pages/transactionFilters.dart';
 import 'package:hamyon/struct/databaseGlobal.dart';
-import 'package:hamyon/struct/firebaseAuthGlobal.dart';
 import 'package:hamyon/struct/familyServer.dart';
 import 'package:hamyon/struct/settings.dart';
 import 'package:hamyon/struct/shareBudget.dart';
@@ -12,7 +11,6 @@ import 'package:hamyon/struct/syncClient.dart';
 import 'package:hamyon/widgets/navigationFramework.dart';
 import 'package:hamyon/widgets/periodCyclePicker.dart';
 import 'package:hamyon/widgets/walletEntry.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:async/async.dart';
 import 'package:drift/drift.dart';
@@ -4244,24 +4242,6 @@ class FinanceDatabase extends _$FinanceDatabase {
 
     budget = budget.copyWith(name: budget.name.trim());
     // print(budget);
-
-    if (budget.sharedKey != null && updateSharedEntry == true) {
-      FirebaseFirestore? db = await firebaseGetDBInstance();
-      if (db == null) {
-        return -1;
-      }
-      DocumentReference collectionRef =
-          db.collection('budgets').doc(budget.sharedKey);
-      collectionRef.update({
-        "name": budget.name,
-        "amount": budget.amount,
-        "colour": budget.colour,
-        "startDate": budget.startDate,
-        "endDate": budget.endDate,
-        "periodLength": budget.periodLength,
-        "reoccurrence": enumRecurrence[budget.reoccurrence],
-      });
-    }
 
     budget = budget.copyWith(dateTimeModified: Value(DateTime.now()));
     BudgetsCompanion companionToInsert = budget.toCompanion(true);

@@ -40,7 +40,6 @@ import 'package:hamyon/widgets/openBottomSheet.dart';
 import 'package:hamyon/widgets/framework/pageFramework.dart';
 import 'package:hamyon/widgets/openPopup.dart';
 import 'package:hamyon/widgets/radioItems.dart';
-import 'package:hamyon/widgets/ratingPopup.dart';
 import 'package:hamyon/widgets/restartApp.dart';
 import 'package:hamyon/widgets/selectAmount.dart';
 import 'package:hamyon/widgets/selectColor.dart';

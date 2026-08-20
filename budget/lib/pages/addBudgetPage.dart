@@ -6,7 +6,6 @@ import 'package:hamyon/pages/editBudgetLimitsPage.dart';
 import 'package:hamyon/pages/editBudgetPage.dart';
 import 'package:hamyon/pages/premiumPage.dart';
 import 'package:hamyon/pages/settingsPage.dart';
-import 'package:hamyon/pages/sharedBudgetSettings.dart';
 import 'package:hamyon/struct/currencyFunctions.dart';
 import 'package:hamyon/struct/databaseGlobal.dart';
 import 'package:hamyon/struct/settings.dart';
@@ -1265,11 +1264,6 @@ class _AddBudgetPageState extends State<AddBudgetPage> {
           ),
         ],
         listWidgets: [
-          widget.budget != null && widget.budget!.sharedKey != null
-              ? SharedBudgetSettings(
-                  budget: widget.budget!,
-                )
-              : SizedBox.shrink(),
           SizedBox(height: 13),
           Container(height: 70),
         ],

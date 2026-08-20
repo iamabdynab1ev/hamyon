@@ -1,5 +1,4 @@
 import 'package:hamyon/database/tables.dart';
-import 'package:hamyon/pages/sharedBudgetSettings.dart';
 import 'package:hamyon/pages/transactionFilters.dart';
 import 'package:hamyon/struct/currencyFunctions.dart';
 import 'package:hamyon/struct/defaultPreferences.dart';
@@ -1222,9 +1221,6 @@ class _BudgetSpenderSummaryState extends State<BudgetSpenderSummary> {
                         });
                       }
                     }
-                  },
-                  onLongPress: () {
-                    memberPopup(context, spender.member);
                   },
                   color: Colors.transparent,
                   child: AnimatedContainer(

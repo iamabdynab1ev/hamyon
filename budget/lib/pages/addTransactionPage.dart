@@ -9,7 +9,6 @@ import 'package:hamyon/pages/editAssociatedTitlesPage.dart';
 import 'package:hamyon/pages/editWalletsPage.dart';
 import 'package:hamyon/pages/premiumPage.dart';
 import 'package:hamyon/pages/settingsPage.dart';
-import 'package:hamyon/pages/sharedBudgetSettings.dart';
 import 'package:hamyon/pages/transactionsListPage.dart';
 import 'package:hamyon/struct/databaseGlobal.dart';
 import 'package:hamyon/struct/navBarIconsData.dart';
@@ -1514,9 +1513,6 @@ class _AddTransactionPageState extends State<AddTransactionPage>
                     },
                     getSelected: (String item) {
                       return selectedPayer == item;
-                    },
-                    onLongPress: (String item) {
-                      memberPopup(context, item);
                     },
                   ),
                 ),

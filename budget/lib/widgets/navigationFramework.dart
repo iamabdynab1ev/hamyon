@@ -52,7 +52,6 @@ import 'package:hamyon/widgets/openContainerNavigation.dart';
 import 'package:hamyon/widgets/openPopup.dart';
 import 'package:hamyon/widgets/openSnackbar.dart';
 import 'package:hamyon/widgets/outlinedButtonStacked.dart';
-import 'package:hamyon/widgets/ratingPopup.dart';
 import 'package:hamyon/widgets/selectAmount.dart';
 import 'package:hamyon/widgets/selectChips.dart';
 import 'package:hamyon/widgets/selectedTransactionsAppBar.dart';
@@ -420,9 +419,6 @@ class PageNavigationFrameworkState extends State<PageNavigationFramework> {
 
       bool isChangelogShown = showChangelog(context);
       bool isRatingPopupShown = false;
-      if (isChangelogShown == false) {
-        isRatingPopupShown = openRatingPopupCheck(context);
-      }
 
       await setDailyNotifications(context);
       await initializeDefaultDatabase();

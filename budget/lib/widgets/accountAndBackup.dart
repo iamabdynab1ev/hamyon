@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:hamyon/colors.dart';
 import 'package:hamyon/database/generatePreviewData.dart';
 import 'package:hamyon/database/tables.dart';
-import 'package:hamyon/firebase_options.dart';
 import 'package:hamyon/functions.dart';
 import 'package:hamyon/main.dart';
 import 'package:hamyon/pages/aboutPage.dart';
@@ -130,11 +129,10 @@ Future<bool> signInGoogle(
               ]
             : [])
       ];
-      googleSignIn = getPlatform() == PlatformOS.isIOS
-          ? signIn.GoogleSignIn(
-              clientId: DefaultFirebaseOptions.currentPlatform.iosClientId,
-              scopes: scopes)
-          : signIn.GoogleSignIn.standard(scopes: scopes);
+      // Идентификатор клиента для iOS брался из настроек чужого проекта Firebase.
+      // Своего проекта нет, поэтому вход через Google на iOS недоступен — семья
+      // работает через собственный сервер.
+      googleSignIn = signIn.GoogleSignIn.standard(scopes: scopes);
       // googleSignIn?.currentUser?.clearAuthCache();
 
       final signIn.GoogleSignInAccount? account = silentSignIn == true

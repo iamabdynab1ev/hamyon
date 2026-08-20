@@ -458,7 +458,10 @@ class _HomePageRatingBoxState extends State<HomePageRatingBox> {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) return SizedBox.shrink();
+    // Блок предлагал оценить приложение в магазине и отправлял оценку в
+    // чужую базу. Своей страницы в магазине пока нет, отзыв слать некуда.
+    return SizedBox.shrink();
+    // ignore: dead_code
     return AnimatedSizeSwitcher(
       child: hidden
           ? Container(

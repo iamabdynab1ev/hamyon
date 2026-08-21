@@ -9,6 +9,7 @@ import 'package:hamyon/pages/accountsPage.dart';
 import 'package:hamyon/struct/databaseGlobal.dart';
 import 'package:hamyon/struct/settings.dart';
 import 'package:hamyon/struct/syncStorage.dart';
+import 'package:hamyon/struct/syncStorage.dart';
 import 'package:hamyon/struct/shareBudget.dart';
 import 'package:hamyon/struct/syncClient.dart';
 import 'package:hamyon/widgets/animatedExpanded.dart';
@@ -484,28 +485,17 @@ Future<void> deleteRecentBackups(context, amountToKeep,
       loadingIndeterminateKey.currentState?.setVisibility(true);
     }
 
-    final authHeaders = await googleUser!.authHeaders;
-    final authenticateClient = GoogleAuthClient(authHeaders);
-    final driveApi = drive.DriveApi(authenticateClient);
-
-    drive.FileList fileList = await driveApi.files.list(
-      spaces: 'appDataFolder',
-      $fields: 'files(id, name, modifiedTime, size)',
-    );
-    List<drive.File>? files = fileList.files;
-    if (files == null) {
-      throw "No backups found.";
-    }
+    List<RemoteBackupFile> files = await listRemoteBackupFiles();
 
     int index = 0;
-    files.forEach((file) {
-      // subtract 1 because we just made a backup
-      if (index >= amountToKeep - 1) {
-        // only delete excess backups that don't belong to a client sync
-        if (!isSyncBackupFile(file.name)) deleteBackup(driveApi, file.id ?? "");
-      }
-      if (!isSyncBackupFile(file.name)) index++;
-    });
+    for (RemoteBackupFile file in files) {
+      // Файлы синхронизации устройств лимитом не ограничены: у каждого свой,
+      // и удаление чужого сорвало бы обмен изменениями.
+      if (isSyncBackupFile(file.name)) continue;
+      // Минус один, потому что копия только что создана
+      if (index >= amountToKeep - 1) await deleteRemoteBackupFile(file);
+      index++;
+    }
     if (silentDelete == false || silentDelete == null) {
       loadingIndeterminateKey.currentState?.setVisibility(false);
     }
@@ -556,64 +546,24 @@ Future<void> chooseBackup(context,
   }
 }
 
-Future<void> loadBackup(
-    BuildContext context, drive.DriveApi driveApi, drive.File file) async {
+Future<void> loadBackup(BuildContext context, RemoteBackupFile file) async {
   try {
     openLoadingPopup(context);
 
     await cancelAndPreventSyncOperation();
 
-    List<int> dataStore = [];
-    dynamic response = await driveApi.files
-        .get(file.id ?? "", downloadOptions: drive.DownloadOptions.fullMedia);
-    response.stream.listen(
-      (data) {
-        // print("Data: ${data.length}");
-        dataStore.insertAll(dataStore.length, data);
-      },
-      onDone: () async {
-        await overwriteDefaultDB(Uint8List.fromList(dataStore));
+    List<int> dataStore = await downloadRemoteBackupFile(file);
+    await overwriteDefaultDB(Uint8List.fromList(dataStore));
 
-        // if this is added, it doesn't restore the database properly on web
-        // await database.close();
-        popRoute(context);
-        await resetLanguageToSystem(context);
-        await updateSettings("databaseJustImported", true,
-            pagesNeedingRefresh: [], updateGlobalState: false);
-        print(appStateSettings);
-        openSnackbar(
-          SnackbarMessage(
-              title: "backup-restored".tr(),
-              icon: appStateSettings["outlinedIcons"]
-                  ? Icons.settings_backup_restore_outlined
-                  : Icons.settings_backup_restore_rounded),
-        );
-        popRoute(context);
-        restartAppPopup(
-          context,
-          description: kIsWeb
-              ? "refresh-required-to-load-backup".tr()
-              : "restart-required-to-load-backup".tr(),
-          // codeBlock: file.name.toString() +
-          //     (file.modifiedTime == null
-          //         ? ""
-          //         : ("\n" +
-          //             getWordedDateShort(
-          //               file.modifiedTime!,
-          //               showTodayTomorrow: false,
-          //               includeYear: true,
-          //             ))),
-        );
-      },
-      onError: (error) {
-        openSnackbar(
-          SnackbarMessage(
-              title: error.toString(),
-              icon: appStateSettings["outlinedIcons"]
-                  ? Icons.error_outlined
-                  : Icons.error_rounded),
-        );
-      },
+    popRoute(context);
+    openSnackbar(
+      SnackbarMessage(
+        title: "backup-restored".tr(),
+        description: file.name,
+        icon: appStateSettings["outlinedIcons"]
+            ? Icons.settings_backup_restore_outlined
+            : Icons.settings_backup_restore_rounded,
+      ),
     );
   } catch (e) {
     popRoute(context);
@@ -810,9 +760,8 @@ class BackupManagement extends StatefulWidget {
 }
 
 class _BackupManagementState extends State<BackupManagement> {
-  List<drive.File> filesState = [];
+  List<RemoteBackupFile> filesState = [];
   List<int> deletedIndices = [];
-  late drive.DriveApi driveApiState;
   UniqueKey dropDownKey = UniqueKey();
   bool isLoading = true;
   bool autoBackups = appStateSettings["autoBackups"];
@@ -822,22 +771,12 @@ class _BackupManagementState extends State<BackupManagement> {
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () async {
-      (drive.DriveApi?, List<drive.File>?) result = await getDriveFiles();
-      drive.DriveApi? driveApi = result.$1;
-      List<drive.File>? files = result.$2;
-      if (files == null || driveApi == null) {
-        setState(() {
-          filesState = [];
-          isLoading = false;
-        });
-      } else {
-        setState(() {
-          filesState = files;
-          driveApiState = driveApi;
-          isLoading = false;
-        });
-        bottomSheetControllerGlobal.snapToExtent(0);
-      }
+      List<RemoteBackupFile> files = await listRemoteBackupFiles();
+      setState(() {
+        filesState = files;
+        isLoading = false;
+      });
+      if (files.isNotEmpty) bottomSheetControllerGlobal.snapToExtent(0);
     });
   }
 
@@ -859,7 +798,7 @@ class _BackupManagementState extends State<BackupManagement> {
             updateGlobalState: false);
       }
     }
-    Iterable<MapEntry<int, drive.File>> filesMap = filesState.asMap().entries;
+    Iterable<MapEntry<int, RemoteBackupFile>> filesMap = filesState.asMap().entries;
     return PopupFramework(
       title: widget.isClientSync
           ? "devices".tr().capitalizeFirst
@@ -1042,7 +981,7 @@ class _BackupManagementState extends State<BackupManagement> {
               : SizedBox.shrink(),
           ...filesMap
               .map(
-                (MapEntry<int, drive.File> file) => AnimatedSizeSwitcher(
+                (MapEntry<int, RemoteBackupFile> file) => AnimatedSizeSwitcher(
                   child: deletedIndices.contains(file.key)
                       ? Container(
                           key: ValueKey(1),
@@ -1093,8 +1032,7 @@ class _BackupManagementState extends State<BackupManagement> {
                                   },
                                 );
                                 if (result == true)
-                                  loadBackup(
-                                      context, driveApiState, file.value);
+                                  loadBackup(context, file.value);
                               }
                               // else {
                               //   await openPopup(
@@ -1227,11 +1165,9 @@ class _BackupManagementState extends State<BackupManagement> {
                                                                 .withOpacity(
                                                                     0.7),
                                                         onTap: () {
-                                                          saveDriveFileToDevice(
+                                                          saveBackupFileToDevice(
                                                             boxContext:
                                                                 boxContext,
-                                                            driveApi:
-                                                                driveApiState,
                                                             fileToSave:
                                                                 file.value,
                                                           );
@@ -1297,10 +1233,8 @@ class _BackupManagementState extends State<BackupManagement> {
                                                                     .name ??
                                                                 "No name") +
                                                             "\n" +
-                                                            convertBytesToMB(file
-                                                                        .value
-                                                                        .size ??
-                                                                    "0")
+                                                            (file.value.sizeBytes /
+                                                                    (1024 * 1024))
                                                                 .toStringAsFixed(
                                                                     2) +
                                                             " MB",
@@ -1316,9 +1250,8 @@ class _BackupManagementState extends State<BackupManagement> {
                                                       loadingIndeterminateKey
                                                           .currentState
                                                           ?.setVisibility(true);
-                                                      await deleteBackup(
-                                                          driveApiState,
-                                                          file.value.id ?? "");
+                                                      await deleteRemoteBackupFile(
+                                                          file.value);
                                                       openSnackbar(
                                                         SnackbarMessage(
                                                             title:
@@ -1505,21 +1438,14 @@ class LoadingShimmerDriveFiles extends StatelessWidget {
   }
 }
 
-Future<bool> saveDriveFileToDevice({
+Future<bool> saveBackupFileToDevice({
   required BuildContext boxContext,
-  required drive.DriveApi driveApi,
-  required drive.File fileToSave,
+  required RemoteBackupFile fileToSave,
 }) async {
-  List<int> dataStore = [];
-  dynamic response = await driveApi.files
-      .get(fileToSave.id!, downloadOptions: drive.DownloadOptions.fullMedia);
-  await for (var data in response.stream) {
-    dataStore.insertAll(dataStore.length, data);
-  }
-  String fileName = "cashew-" +
-      ((fileToSave.name ?? "") +
-              cleanFileNameString(
-                  (fileToSave.modifiedTime ?? DateTime.now()).toString()))
+  List<int> dataStore = await downloadRemoteBackupFile(fileToSave);
+  String fileName = "hamyon-" +
+      (fileToSave.name +
+              cleanFileNameString(fileToSave.modifiedTime.toString()))
           .replaceAll(".sqlite", "") +
       ".sql";
 

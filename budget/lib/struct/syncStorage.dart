@@ -17,6 +17,7 @@ class RemoteBackupFile {
     required this.name,
     required this.id,
     required this.modifiedTime,
+    this.sizeBytes = 0,
     this.ownerName = "",
   });
 
@@ -27,6 +28,7 @@ class RemoteBackupFile {
   final String id;
 
   final DateTime modifiedTime;
+  final int sizeBytes;
   final String ownerName;
 }
 
@@ -39,6 +41,7 @@ Future<List<RemoteBackupFile>> listRemoteBackupFiles() async {
           name: file.name,
           id: file.name,
           modifiedTime: file.updatedAt,
+          sizeBytes: file.sizeBytes,
           ownerName: file.ownerName,
         )
     ];
@@ -54,6 +57,7 @@ Future<List<RemoteBackupFile>> listRemoteBackupFiles() async {
           name: file.name!,
           id: file.id!,
           modifiedTime: file.modifiedTime?.toLocal() ?? DateTime(0),
+          sizeBytes: int.tryParse(file.size ?? "") ?? 0,
         )
   ];
 }

@@ -13,8 +13,6 @@ loadCurrencyJSON() async {
 
 Future<bool> getExchangeRates() async {
   print("Getting exchange rates for current wallets");
-  // List<String?> uniqueCurrencies =
-  //     await database.getUniqueCurrenciesFromWallets();
   Map<dynamic, dynamic> cachedCurrencyExchange =
       appStateSettings["cachedCurrencyExchange"];
   try {
@@ -28,6 +26,21 @@ Future<bool> getExchangeRates() async {
     print("Error getting currency rates: " + e.toString());
     return false;
   }
+
+  // Мировой источник даёт рыночный курс, а здесь считают по официальному курсу
+  // Нацбанка. Для валют из его списка берём его цифры, остальные оставляем как
+  // есть: Нацбанк публикует лишь три десятка валют.
+  try {
+    Map<String, double> nationalBankRates =
+        await getNationalBankExchangeRates();
+    if (nationalBankRates.isNotEmpty) {
+      cachedCurrencyExchange = Map<dynamic, dynamic>.from(cachedCurrencyExchange)
+        ..addAll(nationalBankRates);
+      print("Applied ${nationalBankRates.length} rates from the national bank");
+    }
+  } catch (e) {
+    print("Error getting national bank rates: " + e.toString());
+  }
   // print(cachedCurrencyExchange);
   updateSettings(
     "cachedCurrencyExchange",
@@ -36,6 +49,47 @@ Future<bool> getExchangeRates() async {
         appStateSettings["cachedCurrencyExchange"].keys.length <= 0,
   );
   return true;
+}
+
+// Курсы Национального банка Таджикистана. Ответ приходит XML, где для каждой
+// валюты указано, сколько сомони стоит Nominal её единиц. Приложение хранит
+// курсы в виде «1 доллар = столько-то единиц валюты», поэтому пересчитываем.
+Future<Map<String, double>> getNationalBankExchangeRates() async {
+  final String today = DateTime.now().toIso8601String().split("T").first;
+  final Uri url = Uri.parse(
+      "https://nbt.tj/ru/kurs/export_xml.php?export=xmlout&date=" + today);
+
+  final http.Response response =
+      await http.get(url).timeout(const Duration(seconds: 20));
+  if (response.statusCode != 200) return {};
+
+  // Файл объявляет кодировку windows-1251, но на деле отдаётся в UTF-8,
+  // поэтому читаем байты сами, не доверяя заголовку.
+  final String body = utf8.decode(response.bodyBytes, allowMalformed: true);
+
+  final RegExp entry = RegExp(
+    r"<CharCode>\s*([A-Za-z]{3})\s*</CharCode>\s*"
+    r"<Nominal>\s*([\d.]+)\s*</Nominal>[\s\S]*?"
+    r"<Value>\s*([\d.]+)\s*</Value>",
+  );
+
+  final Map<String, double> somoniPerUnit = {};
+  for (final RegExpMatch match in entry.allMatches(body)) {
+    final double nominal = double.tryParse(match.group(2) ?? "") ?? 0;
+    final double value = double.tryParse(match.group(3) ?? "") ?? 0;
+    if (nominal <= 0 || value <= 0) continue;
+    somoniPerUnit[(match.group(1) ?? "").toLowerCase()] = value / nominal;
+  }
+
+  final double? somoniPerDollar = somoniPerUnit["usd"];
+  if (somoniPerDollar == null) return {};
+
+  // Сомони в списке нет — он и есть основа котировок, его курс берём напрямую.
+  final Map<String, double> ratesFromDollar = {"tjs": somoniPerDollar};
+  somoniPerUnit.forEach((code, perUnit) {
+    ratesFromDollar[code] = somoniPerDollar / perUnit;
+  });
+  return ratesFromDollar;
 }
 
 double amountRatioToPrimaryCurrencyGivenPk(
